@@ -525,7 +525,7 @@ Page({
         // 默认角色为家长，即2
         let role = 2;
         let code = '';
-params.scene = 'role=-1&code=yyyy';
+
         // 如果是通过扫码进来的
         if(params.scene){
           // 当扫码传入的查询字符串role为-1或者1时，表示老师
