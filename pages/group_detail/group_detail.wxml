@@ -19,7 +19,7 @@
           <text class="calc-day green">第{{item.last}}天</text>
         </view>
         <view class="img-container num1">
-          <image src="{{item.content}}"></image>
+          <image mode="widthFix" src="{{item.content}}"></image>
         </view>
         <view class="active-opera">
           <view class="opera-item" bindtap="thumb" data-index="{{index}}">
