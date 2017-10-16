@@ -525,14 +525,22 @@ Page({
         // 默认角色为家长，即2
         let role = 2;
         let code = '';
-
+params.scene = 'role=-1&code=yyyy';
         // 如果是通过扫码进来的
         if(params.scene){
           // 当扫码传入的查询字符串role为-1或者1时，表示老师
           // -1代表扫码进入本注册页的老师，无需对login返回的role=null做处理，代码在auth.js中体现；
           // 1表示其他页面的老师，如果login返回的role为null，则要提示用户去注册
-          let scene = decodeURIComponent(params.scene);
+          let obj = {};
+          let argArr = decodeURIComponent(params.scene).split('&');
 
+          argArr.forEach((item)=>{
+            let arr = item.split('=');
+            obj[arr[0]] = arr[1];
+            return obj;
+          });
+
+          let scene = obj;
           scene.role && (role = scene.role);
           scene.code && (code = scene.code);
         } else {
